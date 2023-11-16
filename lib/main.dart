@@ -30,8 +30,8 @@ class _EmployeeListState extends State<EmployeeList> {
   }
 
   fetchStudents() async {
-    final url = Uri.https(
-        'flutter-prep-851bd-default-rtdb.firebaseio.com', 'employee-list.json');
+    final url = Uri.https('flutter-prep-851bd-default-rtdb.firebaseio.com',
+        'vit-student-list.json');
     var response = await http.get(url);
     var employees = jsonDecode(response.body);
     setState(() {
