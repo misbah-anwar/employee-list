@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
 
 class EmployeeList extends StatefulWidget {
-  const EmployeeList({Key? key}) : super(key: key);
+  const EmployeeList({super.key});
 
   @override
   State<EmployeeList> createState() => _EmployeeListState();
@@ -20,6 +20,16 @@ class _EmployeeListState extends State<EmployeeList> {
   }
 
   fetchEmployees() async {
+    final url = Uri.https(
+        'flutter-prep-851bd-default-rtdb.firebaseio.com', 'employee-list.json');
+    var response = await http.get(url);
+    var employees = jsonDecode(response.body);
+    setState(() {
+      this.employees = employees;
+    });
+  }
+
+  fetchStudents() async {
     final url = Uri.https(
         'flutter-prep-851bd-default-rtdb.firebaseio.com', 'employee-list.json');
     var response = await http.get(url);
@@ -45,6 +55,7 @@ class _EmployeeListState extends State<EmployeeList> {
             height: double.infinity,
             width: double.infinity,
             child: DataTable(
+              //border: TableBorder.all(),
               columns: const [
                 DataColumn(
                   label: Text('Name'),
