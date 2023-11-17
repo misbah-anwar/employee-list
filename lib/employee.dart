@@ -1,8 +1,10 @@
+import 'package:employee_list/student.dart';
 import 'package:flutter/material.dart';
 
 class Employee extends StatelessWidget {
-  const Employee({required this.employees, super.key});
+  const Employee({required this.employees, required this.students, super.key});
   final Map<String, dynamic> employees;
+  final Map<String, dynamic> students;
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +50,22 @@ class Employee extends StatelessWidget {
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.deepPurple,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Student(
+                students: students,
+                employees: employees,
+              ),
+            ),
+          );
+        },
+        child: const Icon(Icons.arrow_forward,
+            color: Color.fromARGB(182, 0, 0, 0)),
       ),
     );
   }

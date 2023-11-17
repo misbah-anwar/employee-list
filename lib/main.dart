@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'api.dart';
 
-class EmployeeList extends StatefulWidget {
-  const EmployeeList({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<EmployeeList> createState() => _EmployeeListState();
+  State<Home> createState() => _HomeState();
 }
 
-class _EmployeeListState extends State<EmployeeList> {
+class _HomeState extends State<Home> {
   Map<String, dynamic> employees = {};
   Map<String, dynamic> students = {};
 
@@ -34,6 +34,8 @@ class _EmployeeListState extends State<EmployeeList> {
   Widget build(BuildContext context) {
     return Employee(
       employees: employees,
+      students: students,
+      //mentors: mentors
     );
   }
 }
@@ -43,6 +45,6 @@ void main() {
   runApp(MaterialApp(
     theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
     debugShowCheckedModeBanner: false,
-    home: const EmployeeList(),
+    home: const Home(),
   ));
 }
