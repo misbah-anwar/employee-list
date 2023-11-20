@@ -2,9 +2,15 @@ import 'package:employee_list/student.dart';
 import 'package:flutter/material.dart';
 
 class Employee extends StatelessWidget {
-  const Employee({required this.employees, required this.students, super.key});
+  const Employee({
+    required this.employees,
+    required this.students,
+    required this.mentors,
+    super.key,
+  });
   final Map<String, dynamic> employees;
   final Map<String, dynamic> students;
+  final Map<String, dynamic> mentors;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +66,7 @@ class Employee extends StatelessWidget {
               builder: (context) => Student(
                 students: students,
                 employees: employees,
+                mentors: mentors,
               ),
             ),
           );

@@ -13,6 +13,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   Map<String, dynamic> employees = {};
   Map<String, dynamic> students = {};
+  Map<String, dynamic> mentors = {};
 
   @override
   void initState() {
@@ -35,15 +36,20 @@ class _HomeState extends State<Home> {
     return Employee(
       employees: employees,
       students: students,
-      //mentors: mentors
+      mentors: mentors,
     );
   }
 }
 
 void main() {
-  GoogleFonts.config.allowRuntimeFetching = true;
   runApp(MaterialApp(
-    theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
+    theme: ThemeData(
+        fontFamily: 'SF Pro',
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(fontSize: 25),
+          titleSmall: TextStyle(fontSize: 20),
+          bodyMedium: TextStyle(fontSize: 18),
+        )),
     debugShowCheckedModeBanner: false,
     home: const Home(),
   ));

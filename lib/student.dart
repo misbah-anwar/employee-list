@@ -1,10 +1,16 @@
-import 'package:employee_list/employee.dart';
+import 'package:employee_list/mentor.dart';
 import 'package:flutter/material.dart';
 
 class Student extends StatelessWidget {
-  const Student({required this.employees, required this.students, super.key});
+  const Student({
+    required this.employees,
+    required this.students,
+    super.key,
+    required this.mentors,
+  });
   final Map<String, dynamic> students;
   final Map<String, dynamic> employees;
+  final Map<String, dynamic> mentors;
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +63,10 @@ class Student extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) =>
-                    Employee(employees: employees, students: students)),
+                builder: (context) => Mentor(
+                      employees: employees,
+                      students: students,
+                    )),
           );
         },
         child: const Icon(Icons.arrow_forward,
