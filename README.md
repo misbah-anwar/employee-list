@@ -1,6 +1,6 @@
-# employee_list
+# Employee-Student Assignment
 
-A new Flutter project.
+A new Flutter project using Firebase.
 
 ## Getting Started
 
